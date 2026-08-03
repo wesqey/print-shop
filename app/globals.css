@@ -1,0 +1,47 @@
+:root {
+  --bg: #0b0b0a;
+  --bg-raised: #131211;
+  --fg: #ece7de;
+  --muted: #8c877d;
+  --line: #262420;
+  --accent: #c9bfa8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--fg);
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+.mono {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  letter-spacing: 0.04em;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+button:focus-visible,
+a:focus-visible,
+select:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 3px;
+}
