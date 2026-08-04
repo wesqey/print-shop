@@ -24,16 +24,18 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
       >
         <div
           style={{
-            aspectRatio: "4/5",
             background: "var(--bg-raised)",
             border: "1px solid var(--line)",
-            overflow: "hidden",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            maxHeight: "80vh",
           }}
         >
           <img
             src={`/images/${product.imageFile}`}
             alt={product.title}
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            style={{ width: "100%", height: "auto", maxHeight: "80vh", objectFit: "contain", display: "block" }}
           />
         </div>
 
