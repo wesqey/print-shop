@@ -41,16 +41,37 @@ Same as before — Stripe secret key + webhook secret, and a
 4. Test a full order end-to-end in Sandbox before switching
    `PRODIGI_SANDBOX=false` and using your Live key.
 
-### 3. Hosting your full-resolution originals
-This is the one manual infrastructure piece: Prodigi downloads the
-print file from a URL you give it, so your **full-res masters** (not
-the compressed previews in `public/images`) need to live somewhere
-with a fetchable URL — an S3 bucket, Vercel Blob storage, Cloudflare
-R2, etc. Upload your originals there under the same filenames as in
-`lib/products.ts`, and set `ORIGINALS_BASE_URL` to that location.
+### 3. Hosting your full-resolution originals (Vercel Blob)
+Prodigi downloads the print file from a URL you give it — it doesn't
+accept direct uploads. So your **full-res masters** (not the
+compressed previews in `public/images`) need to live somewhere with a
+fetchable URL. This project uses Vercel Blob since you're deploying
+on Vercel anyway — same dashboard, no separate cloud account.
 
-Keep this bucket private/signed if you don't want your full-res files
-publicly downloadable — Prodigi's docs support signed URLs.
+1. Vercel dashboard → your project → **Storage** tab → **Create
+   Database** → **Blob**. Once created, Vercel automatically adds
+   `BLOB_READ_WRITE_TOKEN` to your project's environment variables.
+2. For local use (so the upload script can run from your machine),
+   copy that same token into `.env.local`.
+3. `npm install` (pulls in `@vercel/blob`)
+4. Run:
+   ```
+   node scripts/upload-originals.mjs "/path/to/your/full-res/originals"
+   ```
+   Filenames in that folder must exactly match the `imageFile` values
+   in `lib/products.ts` — same name, just the real full-resolution
+   file instead of the compressed web preview.
+5. This uploads everything and writes `lib/originals-map.json`,
+   mapping each filename to its hosted URL. `lib/prodigi.ts` reads
+   from this file when submitting an order — no manual URL-building,
+   no guessing.
+6. Re-run any time you add or replace an original; it just
+   re-uploads and rewrites the map.
+
+Note: this uploads as **public** (anyone with the exact URL could
+view/download a given file), since Prodigi's API needs a directly
+fetchable URL. The URLs aren't discoverable/listed anywhere though —
+only Prodigi (and you) ever see them.
 
 ### 4. Everything else
 Same as before: add images to `public/images/`, catalog entries to

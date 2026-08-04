@@ -8,23 +8,30 @@
 //    Find these in your Prodigi dashboard's product catalogue (search
 //    "C-type" / chromogenic prints) — sizes/SKUs vary by exact finish
 //    (lustre/gloss/metallic) so pick one and copy its SKU per size.
-// 3. Your full-resolution ORIGINAL files (not the compressed web
-//    previews in public/images) need to be hosted somewhere with a
-//    fetchable URL — Prodigi downloads from a URL, it doesn't accept
-//    direct uploads. See ORIGINALS_BASE_URL below.
+// 3. Run scripts/upload-originals.mjs to host your full-resolution
+//    originals on Vercel Blob and generate lib/originals-map.json —
+//    that's what this file reads image URLs from below.
+
+import originalsMap from "./originals-map.json";
 
 const PRODIGI_API_BASE = process.env.PRODIGI_SANDBOX === "true"
   ? "https://api.sandbox.prodigi.com/v4.0"
   : "https://api.prodigi.com/v4.0";
 
-// Fill these in with real SKUs from your Prodigi dashboard's C-type product catalogue.
+// Fill these in with your five real SKUs from Prodigi's dashboard.
 export const SIZE_TO_SKU: Record<string, string> = {
-  "4x6": "REPLACE_WITH_REAL_SKU_4x6",
-  "8x12": "REPLACE_WITH_REAL_SKU_8x12",
-  "12x18": "REPLACE_WITH_REAL_SKU_12x18",
-  "16x24": "REPLACE_WITH_REAL_SKU_16x24",
-  "20x30": "REPLACE_WITH_REAL_SKU_20x30",
+  "4x6": "GLOBAL-PHO-4X6-PRO",
+  "8x12": "GLOBAL-PHO-8X12-PRO",
+  "12x18": "GLOBAL-PHO-12X18-PRO",
+  "16x24": "GLOBAL-PHO-16X24-PRO",
+  "20x30": "GLOBAL-PHO-20X30-PRO",
 };
+
+// Finish is set via an order-item attribute, not the SKU — verify the
+// exact attribute key + value Prodigi expects for these SKUs by running:
+//   curl -H "X-API-Key: YOUR_KEY" https://api.sandbox.prodigi.com/v4.0/products/GLOBAL-PHO-4X6-PRO
+// and checking the returned attribute schema before trusting this value.
+const PRINT_ATTRIBUTES = { finish: "lustre" };
 
 type Address = {
   name: string;
@@ -51,10 +58,12 @@ export async function createProdigiOrder({
   const sku = SIZE_TO_SKU[sizeKey];
   if (!sku) throw new Error(`No Prodigi SKU configured for size "${sizeKey}"`);
 
-  const originalsBase = process.env.ORIGINALS_BASE_URL;
-  if (!originalsBase) throw new Error("ORIGINALS_BASE_URL is not set");
-
-  const assetUrl = `${originalsBase.replace(/\/$/, "")}/${imageFile}`;
+  const assetUrl = (originalsMap as Record<string, string>)[imageFile];
+  if (!assetUrl) {
+    throw new Error(
+      `No hosted original found for "${imageFile}" in lib/originals-map.json — run scripts/upload-originals.mjs`
+    );
+  }
 
   const payload = {
     merchantReference: merchantOrderId,
@@ -76,6 +85,7 @@ export async function createProdigiOrder({
         sku,
         copies: 1,
         sizing: "fillPrintArea",
+        attributes: PRINT_ATTRIBUTES,
         assets: [{ printArea: "default", url: assetUrl }],
       },
     ],
