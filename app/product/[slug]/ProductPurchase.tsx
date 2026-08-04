@@ -26,31 +26,56 @@ export default function ProductPurchase({ slug }: { slug: string }) {
   const selected = SIZES.find((s) => s.key === size)!;
 
   return (
-    <div style={{ marginTop: 14, borderTop: "1px dashed #c3d3e2", paddingTop: 14 }}>
-      <label style={{ fontSize: 12, fontWeight: "bold", color: "#556", display: "block", marginBottom: 6 }}>
-        Choose a size:
-      </label>
-      <select
-        value={size}
-        onChange={(e) => setSize(e.target.value as any)}
+    <div>
+      <div className="mono" style={{ fontSize: 11, color: "var(--muted)", marginBottom: 10 }}>
+        SIZE
+      </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 32 }}>
+        {SIZES.map((s) => (
+          <label
+            key={s.key}
+            className="mono"
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              padding: "12px 14px",
+              border: `1px solid ${size === s.key ? "var(--accent)" : "var(--line)"}`,
+              cursor: "pointer",
+              fontSize: 13,
+              color: size === s.key ? "var(--fg)" : "var(--muted)",
+            }}
+          >
+            <span style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <input
+                type="radio"
+                name="size"
+                value={s.key}
+                checked={size === s.key}
+                onChange={() => setSize(s.key)}
+                style={{ accentColor: "var(--accent)" }}
+              />
+              {s.label}
+            </span>
+            <span>${(s.priceCents / 100).toFixed(2)}</span>
+          </label>
+        ))}
+      </div>
+      <button
+        onClick={handleBuy}
+        disabled={loading}
+        className="mono"
         style={{
           width: "100%",
-          padding: "8px",
+          padding: "16px 24px",
           fontSize: 13,
-          border: "1px solid #a9bdd1",
-          borderRadius: 4,
-          marginBottom: 12,
-          background: "#fff",
+          letterSpacing: "0.08em",
+          background: "var(--fg)",
+          color: "var(--bg)",
+          border: "none",
+          cursor: "pointer",
         }}
       >
-        {SIZES.map((s) => (
-          <option key={s.key} value={s.key}>
-            {s.label} — ${(s.priceCents / 100).toFixed(2)}
-          </option>
-        ))}
-      </select>
-      <button onClick={handleBuy} disabled={loading} className="btn-glossy" style={{ width: "100%", border: "none" }}>
-        {loading ? "Please wait..." : `Buy Now — $${(selected.priceCents / 100).toFixed(2)}`}
+        {loading ? "REDIRECTING…" : `ORDER — $${(selected.priceCents / 100).toFixed(2)}`}
       </button>
     </div>
   );
