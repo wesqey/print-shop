@@ -27,7 +27,7 @@ export const PRODUCTS: Product[] = [
   { slug: "boy-building-computer", title: "Boy Building Computer", description: "42.04496102588328, -87.68470056012883", imageFile: "Boy Building Computer.jpg" },
   { slug: "daughter-mother", title: "Daughter & Mother", description: "41.8928416289724, -87.61475514751457", imageFile: "Daughter & Mother.jpg" },
   { slug: "dd", title: "DD", description: "41.8928416289724, -87.61475514751457", imageFile: "DD.jpg" },
-  { slug: "early-onset-dimentia", title: "Early Onset Dimentia", description: "", imageFile: "Early Onset Dimentia.jpg" },
+  { slug: "early-onset-dimentia", title: "Early Onset Dimentia", description: "42.04648053477297, -87.68091843701593", imageFile: "Early Onset Dimentia.jpg" },
   { slug: "edzo", title: "Edzo", description: "42.046190774549444, -87.6815443780317", imageFile: "Edzo.jpg" },
   { slug: "ep", title: "EP", description: "", imageFile: "EP.jpg" },
   { slug: "feller", title: "Feller", description: "", imageFile: "Feller.jpg" },
