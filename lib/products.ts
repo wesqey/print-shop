@@ -30,7 +30,7 @@ export const PRODUCTS: Product[] = [
   { slug: "early-onset-dimentia", title: "Early Onset Dimentia", description: "42.04648053477297, -87.68091843701593", imageFile: "Early Onset Dimentia.jpg" },
   { slug: "edzo", title: "Edzo", description: "42.046190774549444, -87.6815443780317", imageFile: "Edzo.jpg" },
   { slug: "ep", title: "EP", description: "", imageFile: "EP.jpg" },
-  { slug: "feller", title: "Feller", description: "", imageFile: "Feller.jpg" },
+  { slug: "feller", title: "Feller", description: "41.90045729262837, -87.68663980266722", imageFile: "Feller.jpg" },
   { slug: "friend", title: "Friend", description: "42.04496102588328, -87.68470056012883", imageFile: "Friend.jpg" },
   { slug: "gaming-cafe", title: "Gaming Cafe", description: "", imageFile: "Gaming Cafe.jpg" },
   { slug: "green-white", title: "Green & White", description: "", imageFile: "Green & White.jpg" },
