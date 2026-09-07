@@ -44,7 +44,7 @@ export const PRODUCTS: Product[] = [
   { slug: "self-portrait-1", title: "Self Portrait 1", description: "42.04496102588328, -87.68470056012883", imageFile: "Self Portrait 1.jpg" },
   { slug: "self-portrait", title: "Self Portrait", description: "42.04496102588328, -87.68470056012883", imageFile: "Self Portrait.jpg" },
   { slug: "sudafed", title: "Sudafed", description: "41.8928416289724, -87.61475514751457", imageFile: "Sudafed.jpg" },
-  { slug: "toilets", title: "Toilets", description: "", imageFile: "Toilets.jpg" },
+  { slug: "toilets", title: "Toilets", description: "35.66066316599396, 139.70035019355186", imageFile: "Toilets.jpg" },
   { slug: "tricycle", title: "Tricycle", description: "", imageFile: "Tricycle.jpg" },
   { slug: "untitled-1", title: "Untitled 1", description: "", imageFile: "Untitled 1.jpg" },
   { slug: "untitled", title: "Untitled", description: "42.05232880128282, -87.66990069297032", imageFile: "Untitled.jpg" },
