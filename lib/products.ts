@@ -34,7 +34,7 @@ export const PRODUCTS: Product[] = [
   { slug: "friend", title: "Friend", description: "42.04496102588328, -87.68470056012883", imageFile: "Friend.jpg" },
   { slug: "gaming-cafe", title: "Gaming Cafe", description: "", imageFile: "Gaming Cafe.jpg" },
   { slug: "green-white", title: "Green & White", description: "", imageFile: "Green & White.jpg" },
-  { slug: "hank-and-his-omega", title: "Hank and his Omega", description: "", imageFile: "Hank and his Omega.jpg" },
+  { slug: "hank-and-his-omega", title: "Hank and his Omega", description: "41.93951244156843, -87.7213423278279", imageFile: "Hank and his Omega.jpg" },
   { slug: "hazel", title: "Hazel", description: "", imageFile: "Hazel.jpg" },
   { slug: "highway-in-the-middle-of-the-country", title: "Highway in the middle of the country", description: "39.60540583700719, -106.08281792251873", imageFile: "Highway in the middle of the country.jpg" },
   { slug: "i-have-your-shirt", title: "I Have Your Shirt", description: "42.04496102588328, -87.68470056012883", imageFile: "I Have Your Shirt.jpg" },
