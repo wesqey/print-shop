@@ -6,7 +6,7 @@ export default function Home() {
     <main style={{ maxWidth: 1200, margin: "0 auto", padding: "64px 32px 120px" }}>
       <header style={{ marginBottom: 80, borderBottom: "1px solid var(--line)", paddingBottom: 32 }}>
         <div className="mono" style={{ fontSize: 12, color: "var(--muted)", marginBottom: 12 }}>
-          ARCHIVE — PRINTS AVAILABLE TO ORDER
+          ARCHIVE
         </div>
         <h1
           style={{
