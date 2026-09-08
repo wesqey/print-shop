@@ -3,8 +3,9 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import ProductPurchase from "./ProductPurchase";
 import BackButton from "./BackButton";
-export default function ProductPage({ params }: { params: { slug: string } }) {
-  const product = getProduct(params.slug);
+export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const product = getProduct(slug);
   if (!product) return notFound();
   const index = PRODUCTS.findIndex((p) => p.slug === product.slug);
 
