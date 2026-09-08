@@ -40,7 +40,7 @@ export const PRODUCTS: Product[] = [
   { slug: "i-have-your-shirt", title: "I Have Your Shirt", description: "42.04496102588328, -87.68470056012883", imageFile: "I Have Your Shirt.jpg" },
   { slug: "npc", title: "NPC", description: "35.69015438039614, 139.70379382836313", imageFile: "NPC.jpg" },
   { slug: "person-not-allowed-in-onsen", title: "Person Not Allowed in Onsen", description: "", imageFile: "Person Not Allowed in Onsen.jpg" },
-  { slug: "redbull-and-10-wagyu", title: "Redbull and $10 Wagyu", description: "35.03522402939566, 135.73676493422929", imageFile: "Redbull and $10 Wagyu.jpg" },
+  { slug: "redbull-and-10-wagyu", title: "Red bull and $10 Wagyu", description: "35.03522402939566, 135.73676493422929", imageFile: "Redbull and $10 Wagyu.jpg" },
   { slug: "self-portrait-1", title: "Self Portrait 1", description: "42.04496102588328, -87.68470056012883", imageFile: "Self Portrait 1.jpg" },
   { slug: "self-portrait", title: "Self Portrait", description: "42.04496102588328, -87.68470056012883", imageFile: "Self Portrait.jpg" },
   { slug: "sudafed", title: "Sudafed", description: "41.8928416289724, -87.61475514751457", imageFile: "Sudafed.jpg" },
