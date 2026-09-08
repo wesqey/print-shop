@@ -4,7 +4,7 @@ export default function Success() {
       <div className="mono" style={{ fontSize: 12, color: "var(--muted)", marginBottom: 20 }}>
         ORDER CONFIRMED
       </div>
-      <h1 style={{ fontSize: 32, fontStyle: "italic", fontWeight: 500, margin: "0 0 16px" }}>
+      <h1 style={{ fontSize: 18, fontWeight: 500, margin: "0 0 16px" }}>
         Thank you.
       </h1>
       <p style={{ color: "var(--muted)", lineHeight: 1.6 }}>
