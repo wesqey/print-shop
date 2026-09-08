@@ -8,17 +8,6 @@ export default function Home() {
         <div className="mono" style={{ fontSize: 12, color: "var(--muted)", marginBottom: 12 }}>
           ARCHIVE
         </div>
-        <h1
-          style={{
-            fontSize: "clamp(36px, 5vw, 56px)",
-            fontStyle: "italic",
-            fontWeight: 500,
-            margin: 0,
-            lineHeight: 1.05,
-          }}
-        >
-          Selected Works
-        </h1>
       </header>
 
       <div
