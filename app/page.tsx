@@ -43,7 +43,7 @@ export default function Home() {
                 marginTop: 14,
               }}
             >
-              <span style={{ fontSize: 18, fontStyle: "italic" }}>{p.title}</span>
+              <span style={{ fontSize: 18 }}>{p.title}</span>
               <span className="mono" style={{ fontSize: 11, color: "var(--muted)" }}>
                 PL. {String(i + 1).padStart(2, "0")}
               </span>

@@ -2,7 +2,7 @@ import { getProduct, PRODUCTS } from "@/lib/products";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import ProductPurchase from "./ProductPurchase";
-
+import BackButton from "./BackButton";
 export default function ProductPage({ params }: { params: { slug: string } }) {
   const product = getProduct(params.slug);
   if (!product) return notFound();
@@ -10,9 +10,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
 
   return (
     <main style={{ maxWidth: 1000, margin: "0 auto", padding: "48px 32px 120px" }}>
-      <Link href="/" className="mono" style={{ fontSize: 12, color: "var(--muted)", textDecoration: "none" }}>
-        ← ARCHIVE
-      </Link>
+      <BackButton />
 
       <div
         style={{
