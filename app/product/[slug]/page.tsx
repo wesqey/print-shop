@@ -41,7 +41,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
           <div className="mono" style={{ fontSize: 12, color: "var(--muted)", marginBottom: 16 }}>
             PL. {String(index + 1).padStart(2, "0")}
           </div>
-          <h1 style={{ fontSize: 34, fontStyle: "italic", fontWeight: 500, margin: "0 0 20px" }}>
+          <h1 style={{ fontSize: 34, fontWeight: 500, margin: "0 0 20px" }}>
             {product.title}
           </h1>
           <p style={{ color: "var(--muted)", lineHeight: 1.6, marginBottom: 40, fontSize: 17 }}>
