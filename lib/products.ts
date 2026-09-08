@@ -22,7 +22,7 @@ export const PRODUCTS: Product[] = [
   { slug: "11-0", title: "11-0", description: "42.04496102588328, -87.68470056012883", imageFile: "11-0.jpg" },
   { slug: "absinthe-leaves", title: "Absinthe Leaves", description: "42.04129813683762, -87.6800048214011", imageFile: "Absinthe Leaves.jpg" },
   { slug: "across-the-street-from-wicker-park", title: "Across the Street From 'Wicker Park'", description: "41.911090890897256, -87.6768806452824", imageFile: "Across the Street From 'Wicker Park'.jpg" },
-  { slug: "after-the-show", title: "After The Show", description: "", imageFile: "After The Show.jpg" },
+  { slug: "after-the-show", title: "After The Show", description: "N/A", imageFile: "After The Show.jpg" },
   { slug: "als-lamp-and-chair", title: "Al's Lamp and Chair", description: "42.02274730042543, -87.69112784788534", imageFile: "Al's Lamp and Chair.jpg" },
   { slug: "boy-building-computer", title: "Boy Building Computer", description: "42.04496102588328, -87.68470056012883", imageFile: "Boy Building Computer.jpg" },
   { slug: "daughter-mother", title: "Daughter & Mother", description: "41.8928416289724, -87.61475514751457", imageFile: "Daughter & Mother.jpg" },
